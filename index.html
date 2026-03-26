@@ -1,0 +1,940 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Tentmaker Strategies — Digital Strategy & Lead Generation for Ministries, Nonprofits & Purpose-Driven Organizations</title>
+<meta name="description" content="Strategic digital consulting that replaces the need for a full staff. Lead generation, AI-powered systems, and campaign strategy for ministries, nonprofits, and purpose-driven businesses.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;1,9..40,300;1,9..40,400&display=swap" rel="stylesheet">
+<style>
+:root {
+  --ink: #0D0D0D;
+  --paper: #FAF9F6;
+  --warm: #F5F0EB;
+  --accent: #B85C38;
+  --accent-light: #D4856A;
+  --accent-glow: rgba(184, 92, 56, 0.08);
+  --muted: #7A7568;
+  --border: #E8E3DB;
+  --deep: #1A1612;
+  --sage: #5B6B5A;
+  --sage-light: #E8EDE7;
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+html { scroll-behavior: smooth; font-size: 16px; }
+
+body {
+  font-family: 'DM Sans', sans-serif;
+  color: var(--ink);
+  background: var(--paper);
+  line-height: 1.7;
+  -webkit-font-smoothing: antialiased;
+  overflow-x: hidden;
+}
+
+h1, h2, h3, .display { font-family: 'Instrument Serif', Georgia, serif; font-weight: 400; line-height: 1.15; }
+.display-xl { font-size: clamp(2.8rem, 6vw, 5.2rem); letter-spacing: -0.02em; }
+.display-lg { font-size: clamp(2rem, 4vw, 3.4rem); letter-spacing: -0.015em; }
+.display-md { font-size: clamp(1.6rem, 3vw, 2.4rem); letter-spacing: -0.01em; }
+.eyebrow { font-family: 'DM Sans', sans-serif; font-size: 0.72rem; font-weight: 600; letter-spacing: 0.14em; text-transform: uppercase; color: var(--accent); }
+.body-lg { font-size: 1.15rem; line-height: 1.8; color: var(--muted); }
+.body-sm { font-size: 0.92rem; line-height: 1.7; color: var(--muted); }
+
+.container { max-width: 1200px; margin: 0 auto; padding: 0 2rem; }
+.container-narrow { max-width: 800px; margin: 0 auto; padding: 0 2rem; }
+section { padding: 7rem 0; }
+
+/* ══════ NAV ══════ */
+nav {
+  position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+  padding: 1.2rem 2rem;
+  display: flex; align-items: center; justify-content: space-between;
+  background: rgba(250, 249, 246, 0.92);
+  backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px);
+  border-bottom: 1px solid transparent;
+  transition: border-color 0.4s ease, padding 0.4s ease;
+}
+nav.scrolled { border-bottom-color: var(--border); padding: 0.8rem 2rem; }
+.nav-brand { font-family: 'DM Sans', sans-serif; font-weight: 600; font-size: 0.85rem; letter-spacing: 0.08em; text-transform: uppercase; color: var(--ink); text-decoration: none; }
+.nav-links { display: flex; gap: 2.4rem; align-items: center; list-style: none; }
+.nav-links a { font-size: 0.82rem; font-weight: 500; color: var(--muted); text-decoration: none; letter-spacing: 0.02em; transition: color 0.3s ease; }
+.nav-links a:hover { color: var(--ink); }
+.nav-cta { font-size: 0.82rem !important; font-weight: 600 !important; color: var(--paper) !important; background: var(--ink); padding: 0.6rem 1.4rem; border-radius: 6px; transition: background 0.3s ease, transform 0.2s ease !important; }
+.nav-cta:hover { background: var(--accent) !important; color: var(--paper) !important; transform: translateY(-1px); }
+.nav-toggle { display: none; background: none; border: none; cursor: pointer; padding: 0.5rem; z-index: 101; }
+.nav-toggle span { display: block; width: 22px; height: 2px; background: var(--ink); margin: 5px 0; transition: all 0.3s ease; }
+
+/* ══════ HERO ══════ */
+.hero {
+  min-height: 100vh; display: flex; align-items: center;
+  position: relative; padding-top: 6rem; overflow: hidden;
+}
+.hero::before {
+  content: ''; position: absolute; top: -20%; right: -10%;
+  width: 60vw; height: 60vw;
+  background: radial-gradient(circle, var(--accent-glow) 0%, transparent 70%);
+  pointer-events: none;
+}
+.hero::after { content: ''; position: absolute; bottom: 0; left: 0; right: 0; height: 1px; background: var(--border); }
+.hero-content { position: relative; z-index: 1; }
+
+.hero-tag {
+  display: inline-flex; align-items: center; gap: 0.6rem;
+  margin-bottom: 2rem; padding: 0.5rem 1rem;
+  background: var(--warm); border-radius: 100px; border: 1px solid var(--border);
+}
+.hero-tag-dot { width: 6px; height: 6px; border-radius: 50%; background: var(--sage); animation: pulse 2s ease-in-out infinite; }
+@keyframes pulse { 0%, 100% { opacity: 1; } 50% { opacity: 0.4; } }
+.hero-tag span { font-size: 0.78rem; font-weight: 500; color: var(--muted); letter-spacing: 0.02em; }
+
+.hero h1 { margin-bottom: 1.8rem; max-width: 900px; }
+.hero h1 em { font-style: italic; color: var(--accent); }
+.hero-sub { max-width: 620px; margin-bottom: 3rem; }
+
+.hero-actions { display: flex; gap: 1rem; align-items: center; flex-wrap: wrap; }
+
+.btn {
+  display: inline-flex; align-items: center; gap: 0.5rem;
+  font-family: 'DM Sans', sans-serif; font-size: 0.88rem; font-weight: 600;
+  padding: 0.9rem 2rem; border-radius: 8px; text-decoration: none;
+  transition: all 0.3s ease; cursor: pointer; border: none;
+}
+.btn-primary { background: var(--ink); color: var(--paper); }
+.btn-primary:hover { background: var(--accent); transform: translateY(-2px); box-shadow: 0 8px 30px rgba(184, 92, 56, 0.2); }
+.btn-outline { background: transparent; color: var(--ink); border: 1.5px solid var(--border); }
+.btn-outline:hover { border-color: var(--ink); transform: translateY(-2px); }
+
+/* Hero proof */
+.hero-proof {
+  margin-top: 5rem; padding-top: 3rem; border-top: 1px solid var(--border);
+  display: grid; grid-template-columns: repeat(4, 1fr); gap: 2rem;
+}
+.proof-item { text-align: center; }
+.proof-num { font-family: 'Instrument Serif', serif; font-size: 2.2rem; color: var(--ink); line-height: 1; margin-bottom: 0.3rem; }
+.proof-num .counter-suffix { font-size: 1.4rem; color: var(--muted); }
+.proof-label { font-size: 0.72rem; color: var(--muted); letter-spacing: 0.04em; }
+.proof-sublabel { font-size: 0.65rem; color: var(--accent); letter-spacing: 0.03em; margin-top: 0.15rem; font-weight: 500; }
+
+/* ══════ PITCH ══════ */
+.pitch { background: var(--deep); color: var(--paper); position: relative; overflow: hidden; }
+.pitch::before { content: ''; position: absolute; top: 0; left: 50%; transform: translateX(-50%); width: 600px; height: 600px; background: radial-gradient(circle, rgba(184, 92, 56, 0.06) 0%, transparent 70%); pointer-events: none; }
+.pitch .eyebrow { color: var(--accent-light); margin-bottom: 1.5rem; }
+.pitch h2 { margin-bottom: 2rem; max-width: 750px; }
+.pitch .body-lg { color: rgba(250, 249, 246, 0.7); max-width: 640px; margin-bottom: 1.5rem; }
+
+.pitch-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem; margin-top: 4rem; }
+.pitch-card { padding: 2rem; border: 1px solid rgba(255,255,255,0.08); border-radius: 12px; background: rgba(255,255,255,0.03); transition: all 0.4s ease; }
+.pitch-card:hover { border-color: rgba(184, 92, 56, 0.3); background: rgba(184, 92, 56, 0.05); transform: translateY(-4px); }
+.pitch-card-icon { width: 44px; height: 44px; border-radius: 10px; background: rgba(184, 92, 56, 0.12); display: flex; align-items: center; justify-content: center; margin-bottom: 1.2rem; font-size: 1.2rem; }
+.pitch-card h3 { font-size: 1.2rem; margin-bottom: 0.6rem; color: var(--paper); }
+.pitch-card p { font-size: 0.88rem; line-height: 1.7; color: rgba(250, 249, 246, 0.55); }
+
+/* ══════ SERVICES ══════ */
+.services-header { text-align: center; max-width: 700px; margin: 0 auto 5rem; }
+.services-header h2 { margin-top: 1rem; margin-bottom: 1.2rem; }
+
+.service-block { display: grid; grid-template-columns: 1fr 1.2fr; gap: 4rem; align-items: start; padding: 4rem 0; border-top: 1px solid var(--border); }
+.service-block:last-child { padding-bottom: 0; }
+.service-num { font-family: 'Instrument Serif', serif; font-size: 4rem; color: var(--border); line-height: 1; margin-bottom: 1rem; }
+.service-name { font-family: 'Instrument Serif', serif; font-size: 1.8rem; margin-bottom: 1rem; line-height: 1.2; }
+.service-desc { color: var(--muted); font-size: 0.95rem; line-height: 1.8; margin-bottom: 1.5rem; }
+.service-details { display: flex; flex-wrap: wrap; gap: 0.5rem; }
+.service-tag { font-size: 0.75rem; font-weight: 500; padding: 0.35rem 0.9rem; background: var(--warm); border: 1px solid var(--border); border-radius: 100px; color: var(--muted); }
+
+.service-right { background: var(--warm); border-radius: 16px; padding: 2.5rem; border: 1px solid var(--border); }
+.service-right h4 { font-family: 'DM Sans', sans-serif; font-weight: 600; font-size: 0.78rem; letter-spacing: 0.1em; text-transform: uppercase; color: var(--accent); margin-bottom: 1.5rem; }
+.service-result { display: flex; gap: 1rem; align-items: flex-start; padding: 1rem 0; border-bottom: 1px solid var(--border); }
+.service-result:last-child { border-bottom: none; padding-bottom: 0; }
+.service-result-icon { flex-shrink: 0; width: 28px; height: 28px; border-radius: 50%; background: var(--sage-light); display: flex; align-items: center; justify-content: center; margin-top: 2px; }
+.service-result-icon svg { width: 14px; height: 14px; stroke: var(--sage); }
+.service-result-text { font-size: 0.9rem; color: var(--ink); line-height: 1.6; }
+.service-result-text strong { font-weight: 600; }
+
+/* ══════ LEAD GEN FEATURE ══════ */
+.leadgen-feature { background: var(--warm); position: relative; overflow: hidden; }
+.leadgen-feature::before { content: ''; position: absolute; top: -10%; right: -5%; width: 40vw; height: 40vw; background: radial-gradient(circle, rgba(91,107,90,0.06) 0%, transparent 60%); pointer-events: none; }
+
+.leadgen-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 5rem; align-items: center; }
+.leadgen-left h2 { margin-top: 1rem; margin-bottom: 1.5rem; }
+.leadgen-left .body-lg { margin-bottom: 2rem; }
+
+.leadgen-stats { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1rem; }
+.leadgen-stat { text-align: center; padding: 1.5rem 1rem; background: var(--paper); border-radius: 12px; border: 1px solid var(--border); }
+.leadgen-stat-num { font-family: 'Instrument Serif', serif; font-size: 1.8rem; color: var(--accent); line-height: 1; margin-bottom: 0.3rem; }
+.leadgen-stat-label { font-size: 0.7rem; color: var(--muted); letter-spacing: 0.03em; }
+
+.leadgen-flow { position: relative; z-index: 1; }
+.flow-step { display: flex; gap: 1.2rem; align-items: flex-start; margin-bottom: 1.5rem; }
+.flow-step:last-child { margin-bottom: 0; }
+.flow-num { flex-shrink: 0; width: 36px; height: 36px; border-radius: 50%; background: var(--paper); border: 1.5px solid var(--accent); display: flex; align-items: center; justify-content: center; font-family: 'Instrument Serif', serif; font-size: 0.95rem; color: var(--accent); }
+.flow-content h4 { font-family: 'DM Sans', sans-serif; font-weight: 600; font-size: 0.9rem; color: var(--ink); margin-bottom: 0.2rem; }
+.flow-content p { font-size: 0.85rem; color: var(--muted); line-height: 1.6; }
+
+/* ══════ COST COMPARISON ══════ */
+.the-case { background: var(--paper); }
+.case-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 5rem; align-items: center; }
+.case-left h2 { margin-top: 1rem; margin-bottom: 1.5rem; }
+.case-left .body-lg { margin-bottom: 1.5rem; }
+
+.compare-table { width: 100%; border-collapse: separate; border-spacing: 0; border-radius: 12px; overflow: hidden; border: 1px solid var(--border); background: var(--paper); }
+.compare-table th { font-family: 'DM Sans', sans-serif; font-size: 0.72rem; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; padding: 1rem 1.5rem; text-align: left; background: var(--paper); border-bottom: 1px solid var(--border); }
+.compare-table th:last-child { color: var(--accent); }
+.compare-table td { font-size: 0.88rem; padding: 0.9rem 1.5rem; border-bottom: 1px solid var(--border); }
+.compare-table tr:last-child td { border-bottom: none; }
+.compare-table td:first-child { color: var(--muted); font-weight: 500; }
+.compare-table td:nth-child(2) { color: var(--muted); opacity: 0.6; }
+.compare-table td:last-child { color: var(--sage); font-weight: 600; }
+.compare-table .total-row td { font-weight: 700; border-top: 2px solid var(--border); font-size: 1rem; }
+.compare-table .total-row td:nth-child(2) { color: #c0392b; opacity: 1; }
+.compare-table .total-row td:last-child { color: var(--accent); }
+
+/* ══════ APPROACH ══════ */
+.approach-header { text-align: center; max-width: 700px; margin: 0 auto 5rem; }
+.approach-header h2 { margin-top: 1rem; margin-bottom: 1rem; }
+.approach-timeline { position: relative; max-width: 700px; margin: 0 auto; }
+.approach-timeline::before { content: ''; position: absolute; top: 0; left: 28px; bottom: 0; width: 1px; background: var(--border); }
+.approach-step { display: flex; gap: 2.5rem; margin-bottom: 3rem; position: relative; }
+.approach-step:last-child { margin-bottom: 0; }
+.approach-dot { flex-shrink: 0; width: 56px; height: 56px; border-radius: 50%; background: var(--paper); border: 2px solid var(--border); display: flex; align-items: center; justify-content: center; font-family: 'Instrument Serif', serif; font-size: 1.2rem; color: var(--accent); position: relative; z-index: 1; transition: all 0.3s ease; }
+.approach-step:hover .approach-dot { border-color: var(--accent); background: var(--accent-glow); }
+.approach-step-content h3 { font-size: 1.3rem; margin-bottom: 0.5rem; }
+.approach-step-content p { font-size: 0.9rem; color: var(--muted); line-height: 1.7; }
+
+/* ══════ AI SECTION ══════ */
+.ai-section { background: var(--deep); color: var(--paper); position: relative; overflow: hidden; }
+.ai-section::after { content: ''; position: absolute; bottom: -30%; right: -10%; width: 50vw; height: 50vw; background: radial-gradient(circle, rgba(91, 107, 90, 0.08) 0%, transparent 60%); pointer-events: none; }
+
+.ai-header { max-width: 700px; margin-bottom: 4rem; }
+.ai-header .eyebrow { color: var(--sage); margin-bottom: 1rem; }
+.ai-header h2 { margin-bottom: 1.5rem; }
+.ai-header .body-lg { color: rgba(250, 249, 246, 0.65); }
+
+.ai-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 1.5rem; }
+.ai-card { padding: 2.5rem; border-radius: 16px; border: 1px solid rgba(255,255,255,0.06); background: rgba(255,255,255,0.02); transition: all 0.4s ease; }
+.ai-card:hover { border-color: rgba(91, 107, 90, 0.3); background: rgba(91, 107, 90, 0.04); }
+.ai-card .eyebrow { color: var(--sage); margin-bottom: 0.8rem; font-size: 0.68rem; }
+.ai-card h3 { font-size: 1.4rem; margin-bottom: 0.8rem; }
+.ai-card p { font-size: 0.88rem; color: rgba(250, 249, 246, 0.5); line-height: 1.7; }
+
+.ai-card-featured {
+  grid-column: 1 / -1;
+  background: linear-gradient(135deg, rgba(91,107,90,0.08) 0%, rgba(184,92,56,0.05) 100%);
+  border-color: rgba(91,107,90,0.15);
+  display: grid; grid-template-columns: 1fr 1fr; gap: 3rem; align-items: center;
+}
+.ai-card-featured h3 { font-size: 1.8rem; }
+.ai-card-featured p { font-size: 0.95rem; color: rgba(250, 249, 246, 0.6); }
+
+.ai-stats { display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem; }
+.ai-stat { text-align: center; padding: 1.5rem; border-radius: 12px; background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.06); }
+.ai-stat-num { font-family: 'Instrument Serif', serif; font-size: 2rem; color: var(--accent-light); line-height: 1; margin-bottom: 0.3rem; }
+.ai-stat-label { font-size: 0.72rem; color: rgba(250,249,246,0.4); letter-spacing: 0.04em; }
+
+.ai-powered-badge {
+  margin-top: 2rem; display: inline-flex; align-items: center; gap: 0.5rem;
+  padding: 0.5rem 1.2rem; border-radius: 100px;
+  border: 1px solid rgba(91,107,90,0.2); background: rgba(91,107,90,0.06);
+  font-size: 0.75rem; color: rgba(250,249,246,0.5); letter-spacing: 0.04em;
+}
+.ai-powered-badge strong { color: var(--sage); font-weight: 600; }
+
+/* ══════ ABOUT ══════ */
+.about-grid { display: grid; grid-template-columns: 1fr 1.3fr; gap: 5rem; align-items: center; }
+.about-photo { aspect-ratio: 4/5; background: var(--warm); border-radius: 16px; border: 1px solid var(--border); display: flex; align-items: center; justify-content: center; position: relative; overflow: hidden; }
+.about-photo-inner { text-align: center; padding: 3rem; }
+.about-photo-monogram { font-family: 'Instrument Serif', serif; font-size: 5rem; color: var(--accent); opacity: 0.15; line-height: 1; margin-bottom: 1rem; }
+.about-photo-label { font-size: 0.78rem; color: var(--muted); letter-spacing: 0.1em; text-transform: uppercase; }
+.about-right h2 { margin-top: 1rem; margin-bottom: 1.5rem; }
+.about-right .body-lg { margin-bottom: 1.5rem; }
+.about-credentials { display: flex; flex-wrap: wrap; gap: 0.5rem; margin-top: 2rem; }
+.credential-tag { font-size: 0.75rem; font-weight: 500; padding: 0.4rem 1rem; background: var(--sage-light); border-radius: 100px; color: var(--sage); }
+
+/* ══════ CLIENTS ══════ */
+.clients-served { background: var(--warm); padding: 4rem 0; }
+.clients-inner { display: flex; align-items: center; justify-content: center; gap: 3rem; flex-wrap: wrap; }
+.clients-label { font-size: 0.72rem; font-weight: 600; letter-spacing: 0.12em; text-transform: uppercase; color: var(--muted); opacity: 0.5; }
+.client-name { font-family: 'Instrument Serif', serif; font-size: 1.2rem; color: var(--ink); opacity: 0.25; }
+
+/* ══════ CTA ══════ */
+.cta-section { text-align: center; }
+.cta-inner { max-width: 700px; margin: 0 auto; }
+.cta-inner h2 { margin-top: 1rem; margin-bottom: 1.2rem; }
+.cta-inner .body-lg { margin-bottom: 3rem; }
+
+.cta-form { max-width: 500px; margin: 0 auto; display: flex; flex-direction: column; gap: 1rem; }
+.cta-form input, .cta-form textarea, .cta-form select {
+  font-family: 'DM Sans', sans-serif; font-size: 0.92rem; padding: 1rem 1.2rem;
+  border: 1.5px solid var(--border); border-radius: 10px; background: var(--paper);
+  color: var(--ink); transition: border-color 0.3s ease; width: 100%; outline: none;
+}
+.cta-form input:focus, .cta-form textarea:focus, .cta-form select:focus { border-color: var(--accent); }
+.cta-form textarea { min-height: 120px; resize: vertical; }
+.cta-form .btn-primary { width: 100%; justify-content: center; padding: 1rem; font-size: 0.95rem; }
+
+.cta-or { margin: 2.5rem 0; display: flex; align-items: center; gap: 1.5rem; color: var(--muted); font-size: 0.82rem; }
+.cta-or::before, .cta-or::after { content: ''; flex: 1; height: 1px; background: var(--border); }
+.cta-direct { font-size: 0.92rem; color: var(--muted); }
+.cta-direct a { color: var(--accent); text-decoration: none; font-weight: 600; transition: color 0.3s ease; }
+.cta-direct a:hover { color: var(--ink); }
+
+/* ══════ FOOTER ══════ */
+footer { background: var(--deep); color: rgba(250, 249, 246, 0.4); padding: 3rem 0; }
+.footer-inner { display: flex; justify-content: space-between; align-items: center; }
+.footer-brand { font-family: 'DM Sans', sans-serif; font-weight: 600; font-size: 0.82rem; letter-spacing: 0.08em; text-transform: uppercase; color: rgba(250, 249, 246, 0.5); }
+.footer-right { font-size: 0.78rem; }
+
+/* ══════ ANIMATIONS ══════ */
+.reveal { opacity: 0; transform: translateY(30px); transition: opacity 0.8s ease, transform 0.8s ease; }
+.reveal.visible { opacity: 1; transform: translateY(0); }
+.reveal-delay-1 { transition-delay: 0.1s; }
+.reveal-delay-2 { transition-delay: 0.2s; }
+.reveal-delay-3 { transition-delay: 0.3s; }
+
+/* ══════ RESPONSIVE ══════ */
+@media (max-width: 900px) {
+  .hero-proof { grid-template-columns: repeat(2, 1fr); }
+  .pitch-grid { grid-template-columns: 1fr; }
+  .service-block { grid-template-columns: 1fr; gap: 2rem; }
+  .leadgen-grid { grid-template-columns: 1fr; gap: 3rem; }
+  .case-grid { grid-template-columns: 1fr; gap: 3rem; }
+  .ai-grid { grid-template-columns: 1fr; }
+  .ai-card-featured { grid-template-columns: 1fr; }
+  .about-grid { grid-template-columns: 1fr; gap: 3rem; }
+  .about-photo { aspect-ratio: 16/9; }
+  .leadgen-stats { grid-template-columns: repeat(3, 1fr); }
+}
+@media (max-width: 700px) {
+  section { padding: 5rem 0; }
+  .container, .container-narrow { padding: 0 1.2rem; }
+  .hero-proof { grid-template-columns: repeat(2, 1fr); gap: 1.5rem; }
+  .nav-links { display: none; position: fixed; top: 0; left: 0; right: 0; bottom: 0; background: var(--paper); flex-direction: column; justify-content: center; align-items: center; gap: 2rem; z-index: 99; }
+  .nav-links.open { display: flex; }
+  .nav-links a { font-size: 1.2rem; }
+  .nav-toggle { display: block; }
+  .compare-table { font-size: 0.82rem; }
+  .compare-table th, .compare-table td { padding: 0.7rem 0.8rem; }
+  .footer-inner { flex-direction: column; gap: 1rem; text-align: center; }
+  .clients-inner { gap: 1.5rem; }
+  .leadgen-stats { grid-template-columns: 1fr 1fr; }
+}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav id="nav">
+  <a href="#" class="nav-brand">Tentmaker Strategies</a>
+  <ul class="nav-links" id="navLinks">
+    <li><a href="#services">Services</a></li>
+    <li><a href="#leadgen">Lead Generation</a></li>
+    <li><a href="#approach">Approach</a></li>
+    <li><a href="#ai">AI Solutions</a></li>
+    <li><a href="#about">About</a></li>
+    <li><a href="#contact" class="nav-cta">Start a Conversation</a></li>
+  </ul>
+  <button class="nav-toggle" id="navToggle" aria-label="Toggle menu"><span></span><span></span><span></span></button>
+</nav>
+
+<!-- ══════ HERO ══════ -->
+<section class="hero" id="hero">
+  <div class="container hero-content">
+    <div class="hero-tag">
+      <div class="hero-tag-dot"></div>
+      <span>Accepting new clients</span>
+    </div>
+    <h1 class="display-xl">
+      Your mission deserves<br>
+      a <em>full team's</em> impact.<br>
+      Not a full team's budget.
+    </h1>
+    <p class="body-lg hero-sub">
+      Strategic digital consulting for ministries, nonprofits, and purpose-driven businesses. Targeted campaigns. Intelligent lead systems. AI-powered operations. Every dollar stewarded toward maximum impact.
+    </p>
+    <div class="hero-actions">
+      <a href="#contact" class="btn btn-primary">Book a Free Strategy Call →</a>
+      <a href="#services" class="btn btn-outline">See What's Possible</a>
+    </div>
+    <div class="hero-proof">
+      <div class="proof-item">
+        <div class="proof-num"><span id="leadCounter">4,148</span><span class="counter-suffix">+</span></div>
+        <div class="proof-label">Leads Generated</div>
+        <div class="proof-sublabel">in 2026 — and counting</div>
+      </div>
+      <div class="proof-item">
+        <div class="proof-num">7</div>
+        <div class="proof-label">Countries Active</div>
+        <div class="proof-sublabel">in 2026</div>
+      </div>
+      <div class="proof-item">
+        <div class="proof-num">24/7</div>
+        <div class="proof-label">Always-On Systems</div>
+      </div>
+      <div class="proof-item">
+        <div class="proof-num">~30<span class="counter-suffix">/day</span></div>
+        <div class="proof-label">Average Lead Flow</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════ PITCH ══════ -->
+<section class="pitch" id="problem">
+  <div class="container">
+    <div class="eyebrow reveal">The Problem</div>
+    <h2 class="display-lg reveal reveal-delay-1">
+      Your mission deserves a full team's impact.<br>
+      Not a full team's budget.
+    </h2>
+    <p class="body-lg reveal reveal-delay-2">
+      Whether you're launching a ministry, scaling a nonprofit, or building a business that exists to serve — you need the capabilities of a marketing manager, a web developer, a data analyst, an ad specialist, and an IT consultant. Hiring for all five would cost $200K+ per year. You don't have that budget. But you still need those results.
+    </p>
+    <p class="body-lg reveal reveal-delay-3">
+      Every dollar you've been entrusted with carries weight. Faithful stewardship means getting maximum impact from every resource — and the right systems and strategic partner can deliver a full team's capabilities at a fraction of the cost.
+    </p>
+    <div class="pitch-grid">
+      <div style="grid-column: 1 / -1; margin-bottom: -0.5rem;"><span class="eyebrow" style="color: rgba(250,249,246,0.35); font-size: 0.68rem;">Sound familiar?</span></div>
+      <div class="pitch-card reveal">
+        <div class="pitch-card-icon">📣</div>
+        <h3>Campaigns That Stall</h3>
+        <p>You're running ads but leads aren't converting. The targeting is too broad, the messaging doesn't resonate, and budget is burning without a system to capture and follow up on interest.</p>
+      </div>
+      <div class="pitch-card reveal reveal-delay-1">
+        <div class="pitch-card-icon">🔧</div>
+        <h3>Tools That Don't Talk</h3>
+        <p>Your forms go to one place, your emails to another, your data sits in spreadsheets nobody checks. You need a system — but building one feels overwhelming and expensive.</p>
+      </div>
+      <div class="pitch-card reveal reveal-delay-2">
+        <div class="pitch-card-icon">⏳</div>
+        <h3>Time You Don't Have</h3>
+        <p>Every hour spent wrestling with technology is an hour away from your actual mission. You need someone who can build the machine so you can focus on the people.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════ SERVICES ══════ -->
+<section class="services" id="services">
+  <div class="container">
+    <div class="services-header">
+      <div class="eyebrow reveal">What We Build</div>
+      <h2 class="display-lg reveal reveal-delay-1">Strategic systems that<br>work while you sleep</h2>
+      <p class="body-lg reveal reveal-delay-2">Every engagement is custom. But these are the capabilities most clients need — and the outcomes they unlock.</p>
+    </div>
+
+    <!-- Service 1 -->
+    <div class="service-block reveal">
+      <div>
+        <div class="service-num">01</div>
+        <div class="service-name">Lead Generation &<br>Campaign Strategy</div>
+        <p class="service-desc">End-to-end campaign systems built for your specific context, geography, and goals. We've run targeted campaigns reaching English speakers in East Asia, spiritual seekers in South Asia, and emerging communities across the Middle East — all with precision geo-targeting and automated lead capture.</p>
+        <div class="service-details">
+          <span class="service-tag">Meta Ads</span>
+          <span class="service-tag">Audience Strategy</span>
+          <span class="service-tag">Geo-Targeting</span>
+          <span class="service-tag">Lead Forms</span>
+          <span class="service-tag">A/B Testing</span>
+          <span class="service-tag">Messenger Flows</span>
+        </div>
+      </div>
+      <div class="service-right">
+        <h4>What This Looks Like</h4>
+        <div class="service-result"><div class="service-result-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12l5 5L20 7"/></svg></div><div class="service-result-text"><strong>Custom ad campaigns</strong> targeting your exact audience — by location, language, interest, and behavior</div></div>
+        <div class="service-result"><div class="service-result-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12l5 5L20 7"/></svg></div><div class="service-result-text"><strong>Automated lead capture</strong> through Messenger chatbots, instant forms, and intelligent routing</div></div>
+        <div class="service-result"><div class="service-result-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12l5 5L20 7"/></svg></div><div class="service-result-text"><strong>Real-time dashboards</strong> so your team sees every lead the moment they come in — ready for follow-up</div></div>
+      </div>
+    </div>
+
+    <!-- Service 2 -->
+    <div class="service-block reveal">
+      <div>
+        <div class="service-num">02</div>
+        <div class="service-name">Data & Technology<br>Solutions</div>
+        <p class="service-desc">We build the infrastructure that connects your tools, centralizes your data, and gives your team visibility into what's working. Custom dashboards, automated workflows, and integrated systems — designed for non-technical teams.</p>
+        <div class="service-details">
+          <span class="service-tag">Custom Dashboards</span>
+          <span class="service-tag">Google Workspace</span>
+          <span class="service-tag">Workflow Automation</span>
+          <span class="service-tag">Data Integration</span>
+          <span class="service-tag">Reporting Systems</span>
+        </div>
+      </div>
+      <div class="service-right">
+        <h4>What This Looks Like</h4>
+        <div class="service-result"><div class="service-result-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12l5 5L20 7"/></svg></div><div class="service-result-text"><strong>Lead management hubs</strong> that automatically organize, tag, and route new contacts to the right team member</div></div>
+        <div class="service-result"><div class="service-result-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12l5 5L20 7"/></svg></div><div class="service-result-text"><strong>Email-driven course systems</strong> — automated lesson delivery with response tracking and engagement analytics</div></div>
+        <div class="service-result"><div class="service-result-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12l5 5L20 7"/></svg></div><div class="service-result-text"><strong>Unified reporting</strong> that pulls campaign, lead, and engagement data into one clear view</div></div>
+      </div>
+    </div>
+
+    <!-- Service 3 -->
+    <div class="service-block reveal">
+      <div>
+        <div class="service-num">03</div>
+        <div class="service-name">Web Design &<br>Digital Presence</div>
+        <p class="service-desc">Your website is the front door to grant eligibility, strategic partnerships, and new engagement. A compelling digital presence legitimizes your organization and opens doors that stay closed without one. We design and build sites that communicate your mission clearly, capture leads automatically, and give your organization the credibility it deserves.</p>
+        <div class="service-details">
+          <span class="service-tag">Custom HTML/CSS</span>
+          <span class="service-tag">Landing Pages</span>
+          <span class="service-tag">Conversion Optimization</span>
+          <span class="service-tag">Mobile-First</span>
+        </div>
+      </div>
+      <div class="service-right">
+        <h4>What This Looks Like</h4>
+        <div class="service-result"><div class="service-result-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12l5 5L20 7"/></svg></div><div class="service-result-text"><strong>Purpose-built websites</strong> designed to communicate your mission and convert visitors into contacts</div></div>
+        <div class="service-result"><div class="service-result-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12l5 5L20 7"/></svg></div><div class="service-result-text"><strong>Campaign landing pages</strong> optimized for each ad set, audience segment, and call-to-action</div></div>
+        <div class="service-result"><div class="service-result-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12l5 5L20 7"/></svg></div><div class="service-result-text"><strong>Content hosting systems</strong> — video lesson pages, course portals, and resource libraries</div></div>
+      </div>
+    </div>
+
+    <!-- Service 4 -->
+    <div class="service-block reveal">
+      <div>
+        <div class="service-num">04</div>
+        <div class="service-name">Organizational Strategy<br>& Consulting</div>
+        <p class="service-desc">Sometimes the biggest bottleneck isn't your technology — it's your structure. We work with leaders to audit existing systems, diagnose organizational friction, design efficient operational flows, and deliver phased implementation roadmaps. From church connection pathways to team restructuring to campaign diagnostics. We also facilitate cohort-based consulting engagements for churches seeking to sharpen their global missions effectiveness.</p>
+        <div class="service-details">
+          <span class="service-tag">Stakeholder Audits</span>
+          <span class="service-tag">Congregant / User Surveys</span>
+          <span class="service-tag">Systems Diagnosis</span>
+          <span class="service-tag">Process Design</span>
+          <span class="service-tag">Growth Roadmaps</span>
+          <span class="service-tag">KPI Frameworks</span>
+        </div>
+      </div>
+      <div class="service-right">
+        <h4>What This Looks Like</h4>
+        <div class="service-result"><div class="service-result-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12l5 5L20 7"/></svg></div><div class="service-result-text"><strong>Comprehensive audits</strong> — stakeholder interviews, survey design and analysis, cross-functional barrier mapping</div></div>
+        <div class="service-result"><div class="service-result-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12l5 5L20 7"/></svg></div><div class="service-result-text"><strong>Strategic recommendations</strong> with phased implementation timelines, working group structures, and measurable KPIs</div></div>
+        <div class="service-result"><div class="service-result-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12l5 5L20 7"/></svg></div><div class="service-result-text"><strong>Ongoing retainer consulting</strong> — team assessment, directional leadership, and strategic initiative oversight</div></div>
+      </div>
+    </div>
+
+    <!-- Service 5 -->
+    <div class="service-block reveal">
+      <div>
+        <div class="service-num">05</div>
+        <div class="service-name">Total Digital Solutions<br>& Custom Builds</div>
+        <p class="service-desc">For organizations that need a complete digital partner — not just a single service. Website design, lead generation, email marketing, data infrastructure, hosting, maintenance, retargeting, and ongoing digital strategy under one roof. We also build custom tools and solutions tailored to your specific operational needs — if you can describe the problem, we can build the system to solve it.</p>
+        <div class="service-details">
+          <span class="service-tag">Website + Hosting</span>
+          <span class="service-tag">Email Marketing</span>
+          <span class="service-tag">Retargeting</span>
+          <span class="service-tag">Digital Strategy</span>
+          <span class="service-tag">Ongoing Maintenance</span>
+          <span class="service-tag">New Initiatives</span>
+          <span class="service-tag">Custom Tool Development</span>
+        </div>
+      </div>
+      <div class="service-right">
+        <h4>What This Looks Like</h4>
+        <div class="service-result"><div class="service-result-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12l5 5L20 7"/></svg></div><div class="service-result-text"><strong>One partner for everything digital</strong> — website, ads, email, data, and new projects without managing multiple vendors</div></div>
+        <div class="service-result"><div class="service-result-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12l5 5L20 7"/></svg></div><div class="service-result-text"><strong>Custom-built tools</strong> — dashboards, calculators, intake systems, or any digital solution tailored to your specific workflow and needs</div></div>
+        <div class="service-result"><div class="service-result-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12l5 5L20 7"/></svg></div><div class="service-result-text"><strong>Strategic initiative development</strong> — we identify, propose, and build new digital opportunities as your organization grows</div></div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- ══════ LEAD GEN FEATURE ══════ -->
+<section class="leadgen-feature" id="leadgen">
+  <div class="container">
+    <div class="leadgen-grid">
+      <div class="leadgen-left reveal">
+        <div class="eyebrow">Featured Capability</div>
+        <h2 class="display-md">Targeted lead generation<br>that reaches the right people</h2>
+        <p class="body-lg">
+          Our lead generation systems don't just drive volume — they find the exact people you're looking for, in the exact locations you need them. We've built geo-targeted campaigns precise enough to reach English-speaking university students within two miles of specific campuses in Tokyo, spiritual seekers in South Asian cities, and emerging communities across the Middle East.
+        </p>
+        <p class="body-lg">
+          Every campaign is purpose-built: custom audience research, culturally-informed ad creative, automated lead capture through Messenger and WhatsApp, e-course delivery systems that nurture engagement, and real-time dashboards that put every lead in your team's hands the moment they respond.
+        </p>
+        <div class="leadgen-stats">
+          <div class="leadgen-stat">
+            <div class="leadgen-stat-num" id="leadgenCounter">4,148+</div>
+            <div class="leadgen-stat-label">Leads in 2026</div>
+          </div>
+          <div class="leadgen-stat">
+            <div class="leadgen-stat-num">7</div>
+            <div class="leadgen-stat-label">Countries Active</div>
+          </div>
+          <div class="leadgen-stat">
+            <div class="leadgen-stat-num">~30/day</div>
+            <div class="leadgen-stat-label">Average Lead Flow</div>
+          </div>
+        </div>
+      </div>
+      <div class="leadgen-flow reveal reveal-delay-1">
+        <div class="flow-step">
+          <div class="flow-num">1</div>
+          <div class="flow-content">
+            <h4>Audience Research & Strategy</h4>
+            <p>We map your ideal audience by location, language, behavior, and interest — then design a multi-angle campaign that meets them where they are.</p>
+          </div>
+        </div>
+        <div class="flow-step">
+          <div class="flow-num">2</div>
+          <div class="flow-content">
+            <h4>Campaign Deployment</h4>
+            <p>Precision-targeted ads across Meta platforms with multiple creative angles — felt-need, community, identity, and direct invitation — running simultaneously to learn what resonates.</p>
+          </div>
+        </div>
+        <div class="flow-step">
+          <div class="flow-num">3</div>
+          <div class="flow-content">
+            <h4>Automated Lead Capture</h4>
+            <p>Messenger chatbots, WhatsApp flows, and instant forms capture lead data the moment someone responds — with intelligent routing based on ad source, language, and location.</p>
+          </div>
+        </div>
+        <div class="flow-step">
+          <div class="flow-num">4</div>
+          <div class="flow-content">
+            <h4>Nurture & Engagement Systems</h4>
+            <p>Email-driven e-course sequences, discovery content, and targeted follow-up — automated to deepen engagement while your team focuses on personal connection.</p>
+          </div>
+        </div>
+        <div class="flow-step">
+          <div class="flow-num">5</div>
+          <div class="flow-content">
+            <h4>Real-Time Dashboards & Handoff</h4>
+            <p>Your follow-up team sees every new lead instantly in a custom dashboard — organized, tagged, and ready for personal outreach.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════ COST COMPARISON ══════ -->
+<section class="the-case" id="case">
+  <div class="container">
+    <div class="case-grid">
+      <div class="case-left reveal">
+        <div class="eyebrow">The Stewardship Case</div>
+        <h2 class="display-md">Maximum impact.<br>Faithful stewardship.</h2>
+        <p class="body-lg">
+          Every dollar entrusted to your organization carries weight. Faithful stewardship means getting the greatest possible impact from every resource — not overspending on overhead when a smarter system could do more with less.
+        </p>
+        <p class="body-lg">
+          Most organizations think they need a marketing manager, a web developer, a data analyst, an ad specialist, and a technology consultant. That's $200K+ in salaries before benefits, management, and turnover. With the right systems and a strategic partner, you get the same capabilities — often with better execution — at a fraction of the cost.
+        </p>
+      </div>
+      <div class="reveal reveal-delay-2">
+        <table class="compare-table">
+          <thead><tr><th>Capability</th><th>Hire Staff</th><th>Tentmaker</th></tr></thead>
+          <tbody>
+            <tr><td>Marketing / Ads</td><td>$55K/yr</td><td>Included</td></tr>
+            <tr><td>Web Development</td><td>$65K/yr</td><td>Included</td></tr>
+            <tr><td>Data / Analytics</td><td>$50K/yr</td><td>Included</td></tr>
+            <tr><td>IT / Systems</td><td>$45K/yr</td><td>Included</td></tr>
+            <tr><td>AI / Automation</td><td>$70K/yr</td><td>Included</td></tr>
+            <tr class="total-row"><td>Annual Cost</td><td>$285K+</td><td>From $1,500/mo</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════ APPROACH ══════ -->
+<section id="approach">
+  <div class="container">
+    <div class="approach-header">
+      <div class="eyebrow reveal">The Process</div>
+      <h2 class="display-lg reveal reveal-delay-1">How an engagement works</h2>
+      <p class="body-lg reveal reveal-delay-2">A clear path from where you are to where you need to be.</p>
+    </div>
+    <div class="approach-timeline">
+      <div class="approach-step reveal">
+        <div class="approach-dot">1</div>
+        <div class="approach-step-content">
+          <h3>Discovery Call</h3>
+          <p>A 30-minute conversation where we map your goals, constraints, current tools, and biggest bottlenecks. No pitch deck — just honest diagnosis. You'll leave with clarity on what to prioritize even if we never work together.</p>
+        </div>
+      </div>
+      <div class="approach-step reveal">
+        <div class="approach-dot">2</div>
+        <div class="approach-step-content">
+          <h3>Strategic Proposal</h3>
+          <p>Within days, you receive a custom proposal outlining exactly what we'll build, why, and what results to expect. Clear pricing. Clear timeline. No surprises.</p>
+        </div>
+      </div>
+      <div class="approach-step reveal">
+        <div class="approach-dot">3</div>
+        <div class="approach-step-content">
+          <h3>Build & Deploy</h3>
+          <p>We build fast. Most campaign systems are live within 1–2 weeks. You're involved at every decision point but never responsible for the technical execution. We handle the tooling — you handle the mission.</p>
+        </div>
+      </div>
+      <div class="approach-step reveal">
+        <div class="approach-dot">4</div>
+        <div class="approach-step-content">
+          <h3>Optimize & Scale</h3>
+          <p>Once the system is live, we monitor, optimize, and expand. Campaign performance reviews. New audience tests. System improvements. The relationship grows as your impact grows.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════ AI SECTION ══════ -->
+<section class="ai-section" id="ai">
+  <div class="container">
+    <div class="ai-header reveal">
+      <div class="eyebrow">What's Next</div>
+      <h2 class="display-lg">AI-powered operations<br>for mission-driven teams</h2>
+      <p class="body-lg">The organizations that will thrive in the next decade won't just use better tools — they'll use intelligent systems that learn, respond, and operate around the clock. We're building that future now.</p>
+    </div>
+    <div class="ai-grid">
+      <div class="ai-card reveal">
+        <div class="eyebrow">Conversational AI</div>
+        <h3>Intelligent Lead Engagement</h3>
+        <p>AI-powered conversations across Messenger and WhatsApp that qualify leads, answer questions, and route contacts to your team — naturally, in multiple languages, 24 hours a day.</p>
+      </div>
+      <div class="ai-card reveal reveal-delay-1">
+        <div class="eyebrow">Automated Reporting</div>
+        <h3>Morning Briefs, Not Spreadsheets</h3>
+        <p>Wake up to a summary: overnight leads, campaign performance, follow-up priorities — assembled automatically and delivered to your inbox before your first coffee.</p>
+      </div>
+      <div class="ai-card reveal reveal-delay-2">
+        <div class="eyebrow">Workflow Agents</div>
+        <h3>Digital Staff That Never Clock Out</h3>
+        <p>AI agents that monitor your campaigns, flag issues, route leads, update dashboards, and trigger follow-up sequences. Not hypothetical — we're building and deploying these systems now.</p>
+      </div>
+      <div class="ai-card reveal reveal-delay-3">
+        <div class="eyebrow">Multi-Channel Automation</div>
+        <h3>One System, Every Channel</h3>
+        <p>Messenger, WhatsApp, email, SMS — one unified flow that meets people where they are and moves them through your pipeline, with human handoff at the right moments.</p>
+      </div>
+      <div class="ai-card ai-card-featured reveal">
+        <div>
+          <div class="eyebrow">The Vision</div>
+          <h3>Launch with the impact<br>of a full team — for a<br>fraction of the cost</h3>
+          <p>We believe the next generation of high-impact ministries, nonprofits, and purpose-driven businesses won't be built with large staffs. They'll be built with smart systems, strategic partners, and AI that handles the operational load — freeing leaders to focus entirely on their mission and their people.</p>
+          <div class="ai-powered-badge">
+            Coming soon: <strong>&nbsp;tentmaker.ai</strong>
+          </div>
+        </div>
+        <div class="ai-stats">
+          <div class="ai-stat"><div class="ai-stat-num">80%</div><div class="ai-stat-label">Reduction in manual tasks</div></div>
+          <div class="ai-stat"><div class="ai-stat-num">24/7</div><div class="ai-stat-label">Always-on engagement</div></div>
+          <div class="ai-stat"><div class="ai-stat-num">10×</div><div class="ai-stat-label">Lead response speed</div></div>
+          <div class="ai-stat"><div class="ai-stat-num">1</div><div class="ai-stat-label">Strategic partner. Full-team impact.</div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════ ABOUT ══════ -->
+<section class="about" id="about">
+  <div class="container">
+    <div class="about-grid">
+      <div class="about-photo reveal">
+        <div class="about-photo-inner">
+          <div class="about-photo-monogram">AM</div>
+          <div class="about-photo-label">Adam Murphy · Founder</div>
+        </div>
+      </div>
+      <div class="about-right reveal reveal-delay-1">
+        <div class="eyebrow">Who You're Working With</div>
+        <h2 class="display-md" style="font-size: clamp(1.4rem, 2.5vw, 2.1rem);">Kingdom Builder, Connector, and Faith-Filled Fisherman</h2>
+        <p class="body-lg">
+          I'm Adam Murphy — happy husband and proud dad of four. I care deeply about the local church and global missions. By God's grace, the Lord saved me and called me into full-time ministry almost 15 years ago when I was working in strategic consulting in Austin. For the last decade I've served and strategized in global missions — working with ministry startups, local churches, global missions networks, organizations, and missionary teams laboring faithfully among unreached people groups.
+        </p>
+        <p class="body-lg">
+          I founded Tentmaker Strategies because I kept seeing the same needs across organizations: ministry founders with God-sized vision needing a strategic roadmap and infrastructure to get there. Digital opportunities missed that could have meaningfully accelerated the mission. Small teams who need to deliver outsized impact but don't know where to focus. Large organizations so tangled in complexity they've lost clear sight of whether they're reaching their goals. These are needs I've spent the last decade helping to solve, and I hope to help you accelerate your ministry impact.
+        </p>
+        <p class="body-lg">
+          As your strategic partner, my role is to propose and build systems and strategies tailored to your needs and goals, deploy them, optimize them, and stand behind them. Every campaign I design, every dashboard I build, every automation I wire up must pass my own test of usefulness and pressure-testing in the field before it's made available to clients, because as a ministry founder I know first-hand how important your stewardship of resources is.
+        </p>
+        <div class="about-credentials">
+          <span class="credential-tag">Strategic Consulting</span>
+          <span class="credential-tag">Local Church Strategy</span>
+          <span class="credential-tag">Global Missions</span>
+          <span class="credential-tag">Meta Ads & Campaigns</span>
+          <span class="credential-tag">Google Ads</span>
+          <span class="credential-tag">AI & Agentic Systems</span>
+          <span class="credential-tag">Organizational Consulting</span>
+          <span class="credential-tag">Mobilization & Leadership Dev</span>
+          <span class="credential-tag">Web Development</span>
+          <span class="credential-tag">Data & Technology Solutions</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════ CLIENTS ══════ -->
+<div class="clients-served">
+  <div class="container">
+    <div class="clients-inner">
+      <span class="clients-label">Active Engagements</span>
+      <span class="client-name">Global Ministry Network</span>
+      <span class="client-name">Middle East Engagement Ministry</span>
+      <span class="client-name">Church Plant · East Asia</span>
+      <span class="client-name">Megachurch · DFW</span>
+      <span class="client-name">Missionary Network · Middle East</span>
+    </div>
+  </div>
+</div>
+
+<!-- ══════ CTA ══════ -->
+<section class="cta-section" id="contact">
+  <div class="container">
+    <div class="cta-inner">
+      <div class="eyebrow reveal">Let's Talk</div>
+      <h2 class="display-lg reveal reveal-delay-1">Ready to build<br>something that lasts?</h2>
+      <p class="body-lg reveal reveal-delay-2">
+        Whether you're a ministry founder, nonprofit leader, or business owner building something that matters — tell me about your situation. I'll respond within 24 hours with honest thoughts on whether I can help and how.
+      </p>
+      <form class="cta-form reveal reveal-delay-3" id="contactForm" onsubmit="handleSubmit(event)">
+        <input type="text" name="name" placeholder="Your name" required>
+        <input type="email" name="email" placeholder="Email address" required>
+        <input type="tel" name="phone" placeholder="Phone number (optional)">
+        <input type="text" name="org" placeholder="Organization or business name">
+        <select name="interest" required>
+          <option value="" disabled selected>What are you looking for?</option>
+          <option value="lead-gen">Lead Generation & Campaign Strategy</option>
+          <option value="tech">Data & Technology Solutions</option>
+          <option value="web">Web Design & Digital Presence</option>
+          <option value="ai">AI & Automation Solutions</option>
+          <option value="consulting">Organizational Strategy & Consulting</option>
+          <option value="total">Total Digital Solutions (Full Partnership)</option>
+          <option value="all">Not sure — I need help figuring it out</option>
+        </select>
+        <textarea name="message" placeholder="Tell me about your situation — what's working, what's not, and what you're hoping to accomplish..."></textarea>
+        <button type="submit" class="btn btn-primary">Send Message →</button>
+      </form>
+      <div class="cta-or">or reach out directly</div>
+      <p class="cta-direct"><a href="mailto:adam@tentmakerstrategies.com">adam@tentmakerstrategies.com</a></p>
+    </div>
+  </div>
+</section>
+
+<!-- ══════ FOOTER ══════ -->
+<footer>
+  <div class="container">
+    <div class="footer-inner">
+      <div class="footer-brand">Tentmaker Strategies</div>
+      <div class="footer-right">© 2026 Tentmaker Strategies LLC · Texas</div>
+    </div>
+  </div>
+</footer>
+
+<script>
+// Nav scroll
+const nav = document.getElementById('nav');
+window.addEventListener('scroll', () => { nav.classList.toggle('scrolled', window.scrollY > 50); });
+
+// Mobile nav
+const navToggle = document.getElementById('navToggle');
+const navLinks = document.getElementById('navLinks');
+navToggle.addEventListener('click', () => { navLinks.classList.toggle('open'); });
+navLinks.querySelectorAll('a').forEach(a => { a.addEventListener('click', () => navLinks.classList.remove('open')); });
+
+// Scroll reveal
+const reveals = document.querySelectorAll('.reveal');
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach(entry => { if (entry.isIntersecting) entry.target.classList.add('visible'); });
+}, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
+reveals.forEach(el => observer.observe(el));
+
+// Live lead counter
+(function() {
+  // Anchored: 4,148 leads as of March 26, 2026
+  const anchorDate = new Date('2026-03-26T12:00:00');
+  const anchorLeads = 4148;
+  const leadsPerDay = 30;
+  const now = new Date();
+  const daysSinceAnchor = (now - anchorDate) / 86400000;
+  let currentLeads = anchorLeads + Math.max(0, Math.floor(daysSinceAnchor * leadsPerDay));
+
+  function formatNum(n) { return n.toLocaleString(); }
+
+  const heroCounter = document.getElementById('leadCounter');
+  const featureCounter = document.getElementById('leadgenCounter');
+
+  function updateCounters() {
+    heroCounter.textContent = formatNum(currentLeads);
+    featureCounter.textContent = formatNum(currentLeads) + '+';
+  }
+
+  updateCounters();
+
+  // Increment every 60-120 seconds for a subtle live feel
+  function scheduleNext() {
+    const delay = 60000 + Math.random() * 60000;
+    setTimeout(() => {
+      currentLeads++;
+      updateCounters();
+      scheduleNext();
+    }, delay);
+  }
+  scheduleNext();
+})();
+
+// Smooth scroll
+document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+  anchor.addEventListener('click', function(e) {
+    e.preventDefault();
+    const target = document.querySelector(this.getAttribute('href'));
+    if (target) target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+  });
+});
+
+// Form handler - submits to Google Apps Script
+function handleSubmit(e) {
+  e.preventDefault();
+  const form = e.target;
+  const btn = form.querySelector('button');
+  const originalText = btn.textContent;
+  
+  btn.textContent = 'Sending...';
+  btn.style.background = '#7A7568';
+  btn.disabled = true;
+  
+  const data = new FormData(form);
+  const payload = {
+    name: data.get('name'),
+    email: data.get('email'),
+    phone: data.get('phone'),
+    org: data.get('org'),
+    interest: data.get('interest'),
+    message: data.get('message')
+  };
+  
+  fetch('https://script.google.com/macros/s/AKfycbx4sRAPk8xdUiG--I7dff_3OkdIL25v9cU9K8kVoHjHKlSGd2BQz-nrE7XbPR3qmvC-Lw/exec', {
+    method: 'POST',
+    mode: 'no-cors',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify(payload)
+  })
+  .then(() => {
+    btn.textContent = 'Sent! I\'ll be in touch.';
+    btn.style.background = '#5B6B5A';
+    form.reset();
+    setTimeout(() => {
+      btn.textContent = originalText;
+      btn.style.background = '';
+      btn.disabled = false;
+    }, 5000);
+  })
+  .catch(() => {
+    btn.textContent = 'Something went wrong. Try emailing me directly.';
+    btn.style.background = '#c0392b';
+    setTimeout(() => {
+      btn.textContent = originalText;
+      btn.style.background = '';
+      btn.disabled = false;
+    }, 5000);
+  });
+}
+</script>
+
+</body>
+</html>
