@@ -84,11 +84,11 @@ nav.scrolled { border-bottom-color: var(--border); padding: 0.8rem 2rem; }
 .hero-tag {
   display: inline-flex; align-items: center; gap: 0.6rem;
   margin-bottom: 2rem; padding: 0.5rem 1rem;
-  background: var(--warm); border-radius: 100px; border: 1px solid var(--border);
+  background: #EEF3F8; border-radius: 100px; border: 1px solid #C8D9E8;
 }
-.hero-tag-dot { width: 6px; height: 6px; border-radius: 50%; background: var(--sage); animation: pulse 2s ease-in-out infinite; }
+.hero-tag-dot { width: 6px; height: 6px; border-radius: 50%; background: var(--accent); animation: pulse 2s ease-in-out infinite; }
 @keyframes pulse { 0%, 100% { opacity: 1; } 50% { opacity: 0.4; } }
-.hero-tag span { font-size: 0.78rem; font-weight: 500; color: var(--muted); letter-spacing: 0.02em; }
+.hero-tag span { font-size: 0.78rem; font-weight: 500; color: #4A6076; letter-spacing: 0.02em; }
 
 .hero h1 { margin-bottom: 1.8rem; max-width: 900px; }
 .hero h1 em { font-style: italic; color: var(--accent); }
@@ -148,8 +148,8 @@ nav.scrolled { border-bottom-color: var(--border); padding: 0.8rem 2rem; }
 .service-right h4 { font-family: 'DM Sans', sans-serif; font-weight: 600; font-size: 0.78rem; letter-spacing: 0.1em; text-transform: uppercase; color: var(--accent); margin-bottom: 1.5rem; }
 .service-result { display: flex; gap: 1rem; align-items: flex-start; padding: 1rem 0; border-bottom: 1px solid var(--border); }
 .service-result:last-child { border-bottom: none; padding-bottom: 0; }
-.service-result-icon { flex-shrink: 0; width: 28px; height: 28px; border-radius: 50%; background: var(--sage-light); display: flex; align-items: center; justify-content: center; margin-top: 2px; }
-.service-result-icon svg { width: 14px; height: 14px; stroke: var(--sage); }
+.service-result-icon { flex-shrink: 0; width: 28px; height: 28px; border-radius: 50%; background: #FFFFFF; border: 1px solid var(--border); display: flex; align-items: center; justify-content: center; margin-top: 2px; }
+.service-result-icon svg { width: 14px; height: 14px; stroke: var(--accent); }
 .service-result-text { font-size: 0.9rem; color: var(--ink); line-height: 1.6; }
 .service-result-text strong { font-weight: 600; }
 
@@ -258,7 +258,7 @@ nav.scrolled { border-bottom-color: var(--border); padding: 0.8rem 2rem; }
 .about-right h2 { margin-top: 1rem; margin-bottom: 1.5rem; }
 .about-right .body-lg { margin-bottom: 1.5rem; }
 .about-credentials { display: flex; flex-wrap: wrap; gap: 0.5rem; margin-top: 2rem; }
-.credential-tag { font-size: 0.75rem; font-weight: 500; padding: 0.4rem 1rem; background: var(--sage-light); border-radius: 100px; color: var(--sage); }
+.credential-tag { font-size: 0.75rem; font-weight: 500; padding: 0.4rem 1rem; background: #EEF3F8; border: 1px solid #C8D9E8; border-radius: 100px; color: #4A6076; }
 
 /* ══════ CLIENTS ══════ */
 .clients-served { background: var(--warm); padding: 4rem 0; }
@@ -351,7 +351,7 @@ footer { background: var(--deep); color: rgba(250, 249, 246, 0.4); padding: 3rem
   <div class="container hero-content">
     <div class="hero-tag">
       <div class="hero-tag-dot"></div>
-      <span>Accepting new clients</span>
+      <span>Now booking &middot; Fall 2026</span>
     </div>
     <h1 class="display-xl">
       Your mission deserves<br>
@@ -781,20 +781,6 @@ footer { background: var(--deep); color: rgba(250, 249, 246, 0.4); padding: 3rem
     </div>
   </div>
 </section>
-
-<!-- ══════ SECTORS ══════ -->
-<div class="clients-served">
-  <div class="container">
-    <div class="clients-inner">
-      <span class="clients-label">Trusted across sectors and borders</span>
-      <span class="client-name">Home Services · CO, TX</span>
-      <span class="client-name">Real Estate · VA</span>
-      <span class="client-name">Energy · TX</span>
-      <span class="client-name">Nonprofits &amp; Missions · TX, VA, GA</span>
-      <span class="client-name">Special Projects · 8 Global Locations</span>
-    </div>
-  </div>
-</div>
 
 <!-- ══════ CTA ══════ -->
 <section class="cta-section" id="contact">
